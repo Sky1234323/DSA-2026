@@ -24,17 +24,17 @@ public:
         }
 
         int check1 = 0 , check2 = 0;
+        vector<int> ans;
 
         for(int i=0; i<n; i++) {
             if(nums[i] == el1) check1++;
             else if(nums[i] == el2) check2++;
         }
 
-        if(check1 > floor(n/3) && check2 > floor(n/3)) {
-            return {el1 , el2};
-        }
-        else if(check1 > floor(n/3)) return {el1};
-        else if(check2 > floor(n/3)) return {el2};
-        else return {};
+        if(check1 > floor(n/3)) ans.push_back(el1);
+        if(check2 > floor(n/3)) ans.push_back(el2);
+        sort(ans.begin() , ans.end());
+
+        return ans;
     }
 };
