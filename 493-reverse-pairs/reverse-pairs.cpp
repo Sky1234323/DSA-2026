@@ -20,7 +20,7 @@ public:
         int cnt = 0, right = mid + 1;
 
         for (int i = low; i <= mid; i++) {
-            while (right <= high && (long long)nums[i] > 2LL * nums[right]) right++;   // fixed
+            while (right <= high && (long long)nums[i] > 2LL * nums[right]) right++;   
             cnt += (right - (mid + 1));
         }
         return cnt;
@@ -30,11 +30,11 @@ public:
         int cnt = 0;
         if (low >= high) return cnt;
 
-        int mid = low + (high - low) / 2;   // fixed
+        int mid = low + (high - low) / 2;   
 
         cnt += MergeSort(nums, low, mid);
         cnt += MergeSort(nums, mid + 1, high);
-        cnt += CountPairs(nums, low, mid, high);   // count BEFORE merge
+        cnt += CountPairs(nums, low, mid, high);   
         Merge(nums, low, mid, high);
 
         return cnt;
